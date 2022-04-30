@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Operation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it { should validate_presence_of(:pokemon_base_experience) }
+    it { should validate_presence_of(:pokemon_base_experience) }
+    it { should validate_presence_of(:operation) }
+  end
 end
