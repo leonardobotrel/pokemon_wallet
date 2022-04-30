@@ -1,0 +1,2 @@
+class WalletPokemon < ApplicationRecord
+end

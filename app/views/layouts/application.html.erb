@@ -20,8 +20,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <%= link_to "Pokémons", root_path, class: "nav-link active" %>
-            <a class="nav-link" href="#">Carteira</a>
-            <a class="nav-link" href="#">Histórico</a>
+            <%= link_to "Carteira", wallet_pokemons_path, class: "nav-link active", id: "wallet_link" %>
+            <%= link_to "Histórico", operations_path, class: "nav-link active", id: "operation_link" %>
           </div>
         </div>
       </div>
