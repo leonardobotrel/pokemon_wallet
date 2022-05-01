@@ -5,6 +5,9 @@ class WalletPokemon < ApplicationRecord
   after_create :operation_create
   before_destroy :operation_destroy
 
+  #Kaminari
+  paginates_per 10
+
   private
 
   def operation_create

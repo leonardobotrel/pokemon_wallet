@@ -4,4 +4,7 @@ class Operation < ApplicationRecord
   validates :operation, 
           length: {maximum: 1},
           presence: true
+
+  #Kaminari
+  paginates_per 10
 end

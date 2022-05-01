@@ -66,34 +66,18 @@
 
 
                 <!-- end table responsive -->
-                <%
-=begin%>
- <div class="row g-0 text-center text-sm-start">
+                <div class="row">
                   <div class="col-sm-6">
                     <div>
-                      <p class="mb-sm-0">Exibindo de <%= @next_offset-10 rescue @previous_offset + 10 %> até <%= @next_offset %> de <%= @pokemons["count"] %> registros</p>
+                      <%= page_entries_info @operations, entry_name: 'item' %>
                     </div>
                   </div>
                   <!-- end col -->
-                  <div class="col-sm-6">
-                    <nav>
-                      <ul class="pagination justify-content-end">
-                        <li class="page-item <%= "disabled" if @previous_offset.nil? %>">
-                          <%= link_to "Anterior", pokemons_path(:offset => @previous_offset), class: "page-link" %>
-                        </li>
-                        <li class="page-item"><%= link_to ((@next_offset || @previous_offset + 20)/10), pokemons_path(:offset => (@next_offset-10 rescue @previous_offset)), class: "page-link" %></li>
-                        <li class="page-item <%= "disabled" if @next_offset.nil? %>"><%= link_to (((@next_offset || @previous_offset + 20)/10)+1), pokemons_path(:offset => (@next_offset rescue @previous_offset)), class: "page-link" %></li>
-                        <li class="page-item <%= "disabled" if @next_offset.nil? %>"><%= link_to (((@next_offset || @previous_offset + 20)/10)+2), pokemons_path(:offset => (@next_offset+10 rescue @previous_offset)), class: "page-link" %></li>
-                        <li class="page-item <%= "disabled" if @next_offset.nil? %>">
-                          <%= link_to "Próximo", pokemons_path(:offset => @next_offset), class: "page-link" %>
-                        </li>
-                      </ul>
-                    </nav>
+                  <div class="col-sm-6 float-end">
+                    <%= paginate @operations %>
                   </div>
                   <!-- end col -->
                 </div> 
-<%
-=end%>
                 <!-- end row -->
               </div>
               <!-- end card body -->

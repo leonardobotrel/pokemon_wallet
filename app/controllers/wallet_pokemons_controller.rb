@@ -1,6 +1,6 @@
 class WalletPokemonsController < ApplicationController
   def index
-    @wallet_pokemons = WalletPokemon.all
+    @wallet_pokemons = WalletPokemon.all.page(params[:page])
   end
 
   def create
