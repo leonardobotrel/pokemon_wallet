@@ -1,7 +1,5 @@
 class OperationsController < ApplicationController
   def index
-  end
-
-  def create
+    @operations = Operation.all
   end
 end
