@@ -61,7 +61,9 @@
                 <div class="row g-0 text-center text-sm-start">
                   <div class="col-sm-6">
                     <div>
-                      <p class="mb-sm-0">Exibindo de <%= @next_offset-10 rescue @previous_offset + 10 %> até <%= @next_offset %> de <%= @pokemons["count"] %> registros</p>
+                      <p class="mb-sm-0">
+                        Exibindo item <strong><%= @next_offset-9 rescue @previous_offset + 10 %> - <%= @next_offset %></strong> de um total de <strong><%= @pokemons["count"] %></strong>
+                      </p>
                     </div>
                   </div>
                   <!-- end col -->

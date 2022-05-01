@@ -1,0 +1,8 @@
+<div data-controller="autohide">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-success alert-dismissible fade show justify-content-end" role="alert" style="position: absolute; z-index: 2; right: 10px">
+      <%= msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+</div>

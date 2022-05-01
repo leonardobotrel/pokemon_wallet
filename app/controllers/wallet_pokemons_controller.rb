@@ -7,8 +7,7 @@ class WalletPokemonsController < ApplicationController
     @wallet_pokemon = WalletPokemon.new(wallet_pokemon_params)
 
     if @wallet_pokemon.save
-      @wallet_pokemons = WalletPokemon.all
-      redirect_to wallet_pokemons_path
+      redirect_to pokemons_path, notice: "Pokémon adquirido com sucesso!"
     else
       render :index, status: :unprocessable_entity
     end
@@ -18,9 +17,9 @@ class WalletPokemonsController < ApplicationController
     @wallet_pokemon = WalletPokemon.find(params[:id])
 
     if @wallet_pokemon.destroy
-      redirect_to wallet_pokemons_path, notice: "Administrador excluído com sucesso!"
+      redirect_to wallet_pokemons_path, notice: "Pokémon vendido com sucesso!"
     else
-      render :index
+      render :index, status: :unprocessable_entity
     end
   end
 
