@@ -24,16 +24,16 @@
             <%= link_to "Histórico", operations_path, class: "nav-link active", id: "operation_link" %>
             
               <span class="navbar-text ms-3">
-                Valor Carteira: <%= @wallet_value.to_s.gsub!(/\./,",") %>
+                Carteira: $<%= @wallet_value.to_s.gsub!(/\./,",") %>
               </span>
               <span class="navbar-text ms-3">
-                Investido: <%= @investment.to_s.gsub!(/\./,",") %>
+                Investido: $<%= @investment.to_s.gsub!(/\./,",") %>
               </span>
               <span class="navbar-text ms-3">
-                Vendas: <%= @sales.to_s.gsub!(/\./,",") %>
+                Vendido: $<%= @sales.to_s.gsub!(/\./,",") %>
               </span>
               <span class="navbar-text ms-3">
-                Ganho: <%= @earned.to_s.gsub!(/\./,",") %>
+                Resultado: $<%= @earned.to_s.gsub!(/\./,",") %>
               </span>
             
           </div>
