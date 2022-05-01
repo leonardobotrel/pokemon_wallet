@@ -22,6 +22,20 @@
             <%= link_to "Pokémons", root_path, class: "nav-link active" %>
             <%= link_to "Carteira", wallet_pokemons_path, class: "nav-link active", id: "wallet_link" %>
             <%= link_to "Histórico", operations_path, class: "nav-link active", id: "operation_link" %>
+            
+              <span class="navbar-text ms-3">
+                Valor Carteira: <%= @wallet_value %>
+              </span>
+              <span class="navbar-text ms-3">
+                Investido: <%= @investment %>
+              </span>
+              <span class="navbar-text ms-3">
+                Vendas: <%= @sales %>
+              </span>
+              <span class="navbar-text ms-3">
+                Ganho: <%= @earned %>
+              </span>
+            
           </div>
         </div>
       </div>

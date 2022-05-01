@@ -12,8 +12,7 @@ class WalletPokemon < ApplicationRecord
 
   def USD_price
     set_price_service()
-    base_experience_value = self.base_experience * 0.00000001
-    @USD_price = @price.USD_price(base_experience_value)
+    @USD_price = @price.USD_price(self.base_experience)
   end
 
   def operation_create
