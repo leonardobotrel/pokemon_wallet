@@ -33,6 +33,9 @@
                           Ação
                         </th>
                         <th data-column-id="actions" class="text-center">
+                          Preço (USD)
+                        </th>
+                        <th data-column-id="actions" class="text-center">
                           Data
                         </th>
                       </tr>
@@ -50,6 +53,9 @@
                           </td>
                           <td data-column-id="action" class="text-center">
                             <%= operation.operation == 'c' ? 'Compra' : 'Venda' %>
+                          </td>
+                          <td data-column-id="date" class="text-center">
+                            <%= operation.usd_price.to_s.gsub!(/\./,",") %>
                           </td>
                           <td data-column-id="date" class="text-center">
                             <%= operation.created_at %>

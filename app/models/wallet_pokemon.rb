@@ -10,11 +10,33 @@ class WalletPokemon < ApplicationRecord
 
   private
 
+  def USD_price
+    set_price_service()
+    base_experience_value = self.base_experience * 0.00000001
+    @USD_price = @price.USD_price(base_experience_value)
+  end
+
   def operation_create
-    Operation.create(operation: 'c', pokemon_name: self.name, pokemon_base_experience: self.base_experience)
+    USD_price()
+    Operation.create(
+      operation: 'c', 
+      pokemon_name: self.name, 
+      pokemon_base_experience: self.base_experience,
+      usd_price: @USD_price
+    )
   end
 
   def operation_destroy
-    Operation.create(operation: 'v', pokemon_name: self.name, pokemon_base_experience: self.base_experience)
+    USD_price()
+    Operation.create(
+      operation: 'v', 
+      pokemon_name: self.name, 
+      pokemon_base_experience: self.base_experience,
+      usd_price: @USD_price
+    )
+  end
+
+  def set_price_service
+    @price = Price.new
   end
 end
