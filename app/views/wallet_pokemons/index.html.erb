@@ -1,2 +1,107 @@
-<h1>WalletPokemons#index</h1>
-<p>Find me in app/views/wallet_pokemons/index.html.erb</p>
+<div id="layout-wrapper">
+  <div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+              <h4 class="mb-0">Pokemóns na Carteira</h4>
+              <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="#">Carteira</a></li>
+                  <li class="breadcrumb-item active">Lista</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th data-column-id="name" class="text-center">
+                          Nome
+                        </th>
+                        <th data-column-id="base_experience" class="text-center">
+                          Experiência Base
+                        </th>
+                        <th data-column-id="actions" class="text-center">
+                          Ação
+                        </th>
+                      </tr>
+                      <!-- end tr -->
+                    </thead>
+                    <!--  end thead -->
+                    <tbody>
+                      <% @wallet_pokemons.each do |wallet_pokemon| %>
+                        <tr>
+                          <td data-column-id="name" class="text-center"><%= wallet_pokemon.name %></td>
+                          <td data-column-id="base_experience" class="text-center"><%= wallet_pokemon.base_experience %></td>
+                          <td>
+                            <div class="dropdown text-center">
+                              <%= link_to "Vender", [wallet_pokemon], data: {
+                                  turbo_method: :delete,
+                                  turbo_confirm: "Tem certeza?"
+                                },
+                                class:"btn btn-primary btn-sm" 
+                              %>
+                            </div>
+                          </td>
+                        </tr>
+
+                      <% end %>
+
+                    </tbody>
+                    <!-- end tbody -->
+                  </table>
+                  <!--  end table -->
+                </div>
+
+
+                <!-- end table responsive -->
+                <%
+=begin%>
+ <div class="row g-0 text-center text-sm-start">
+                  <div class="col-sm-6">
+                    <div>
+                      <p class="mb-sm-0">Exibindo de <%= @next_offset-10 rescue @previous_offset + 10 %> até <%= @next_offset %> de <%= @pokemons["count"] %> registros</p>
+                    </div>
+                  </div>
+                  <!-- end col -->
+                  <div class="col-sm-6">
+                    <nav>
+                      <ul class="pagination justify-content-end">
+                        <li class="page-item <%= "disabled" if @previous_offset.nil? %>">
+                          <%= link_to "Anterior", pokemons_path(:offset => @previous_offset), class: "page-link" %>
+                        </li>
+                        <li class="page-item"><%= link_to ((@next_offset || @previous_offset + 20)/10), pokemons_path(:offset => (@next_offset-10 rescue @previous_offset)), class: "page-link" %></li>
+                        <li class="page-item <%= "disabled" if @next_offset.nil? %>"><%= link_to (((@next_offset || @previous_offset + 20)/10)+1), pokemons_path(:offset => (@next_offset rescue @previous_offset)), class: "page-link" %></li>
+                        <li class="page-item <%= "disabled" if @next_offset.nil? %>"><%= link_to (((@next_offset || @previous_offset + 20)/10)+2), pokemons_path(:offset => (@next_offset+10 rescue @previous_offset)), class: "page-link" %></li>
+                        <li class="page-item <%= "disabled" if @next_offset.nil? %>">
+                          <%= link_to "Próximo", pokemons_path(:offset => @next_offset), class: "page-link" %>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <!-- end col -->
+                </div> 
+<%
+=end%>
+                <!-- end row -->
+              </div>
+              <!-- end card body -->
+            </div>
+            <!-- end card -->
+          </div>
+          <!-- end col -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -30,7 +30,7 @@
                           Experiência Base
                         </th>
                         <th data-column-id="actions" class="text-center">
-                          Ações
+                          Ação
                         </th>
                       </tr>
                       <!-- end tr -->
@@ -43,7 +43,7 @@
                           <td data-column-id="base_experience" class="text-center"><%= pokemon["base_experience"] %></td>
                           <td>
                             <div class="dropdown text-center">
-                              <a href="#" class="btn btn-primary btn-sm">Comprar</a>
+                              <%= button_to "Comprar", wallet_pokemons_path(name: pokemon["name"], base_experience: pokemon["base_experience"]), class: "btn btn-primary btn-sm" %>
                             </div>
                           </td>
                         </tr>
